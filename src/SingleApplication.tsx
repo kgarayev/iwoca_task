@@ -1,6 +1,12 @@
 import React from "react";
 import styles from "./SingleApplication.module.css";
 
+// a function to format currency
+export const formatCurrency = (amount: number) => {};
+
+// a function to format date
+export const formatDate = (dateString: string) => {};
+
 const SingleApplication = ({ application }) => {
   return (
     <div className={styles.SingleApplication}>
