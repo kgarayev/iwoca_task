@@ -2,10 +2,27 @@ import React from "react";
 import styles from "./SingleApplication.module.css";
 
 // a function to format currency
-export const formatCurrency = (amount: number) => {};
+export const formatCurrency = (amount: number) => {
+  return new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
 
 // a function to format date
-export const formatDate = (dateString: string) => {};
+export const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+
+  const formattedDate = date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  return formattedDate.replace(/\//g, "-");
+};
 
 const SingleApplication = ({ application }) => {
   return (
@@ -20,19 +37,19 @@ const SingleApplication = ({ application }) => {
       </div>
       <div className={styles.cell}>
         <sub>Email</sub>
-        {application.email}
+        <span className={styles.email}>{application.email}</span>
       </div>
       <div className={styles.cell}>
         <sub>Loan Amount</sub>
-        {application.loan_amount}
+        {formatCurrency(application.loan_amount)}
       </div>
       <div className={styles.cell}>
         <sub>Application Date</sub>
-        {application.date_created}
+        {formatDate(application.date_created)}
       </div>
       <div className={styles.cell}>
         <sub>Expiry date</sub>
-        {application.expiry_date}
+        {formatDate(application.expiry_date)}
       </div>
     </div>
   );

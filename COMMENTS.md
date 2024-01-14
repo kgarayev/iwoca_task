@@ -1,18 +1,28 @@
 <!-- Project Comments Go Here -->
 
-### Setup
+## Setup
 
 - Installed axios as an additional dependancy to send http requests to the backend (API) (fetch data).
-
-### Unit Testing Using Vitest
-
-- Implemented a very simple and basic unit testing due to time constraints of the task. This could be extended to include a more comprehensive testing (mocking the data etc.).
 - The API endpoint has been rigorously tested using Postman (integration testing) prior to consuming it in the frontend.
 
-### Main Logic
+## Unit Testing Using Vitest
+
+- Implemented a very simple and basic unit testing due to time constraints of the task. This could be extended to include a more comprehensive testing (mocking the data etc.).
+
+## Main Logic
 
 - Most of the new code and new logic is concentrated in the two components: `Applications.tsx` and `SingleApplication.tsx`
+- `Applications.tsx` component includes all the data fetching and rendering
+- `SingleApplication.tsx` is complemented with some functions to format the raw data strings and present in the required format
 
-### Other Notes & Comments
+## Responsive Design
 
-- It would be a good practice to store the API URL as an environmental variable in the .env file instead of directly consuming it in the code. But for the purposes of the task and to keep things simple, I have not done that.
+- Basic responsive design was implemented using media queries for different screen sizes.
+
+## Other Notes & Comments
+
+- The API URL is directly included in the component for simplicity. However, it's best practice is to store such URLs in environment variables (.env file for instance), and this would be done in a production environment.
+
+## Opportunities for Improvement
+
+- If this project grows, state management tool such as Redux / Redux-Toolkit could be beneficial.
